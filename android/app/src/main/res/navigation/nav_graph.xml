@@ -27,6 +27,7 @@
         android:id="@+id/addFragment"
         android:name="com.example.android.Fragment.AddFragment"
         android:label="fragment_project"
+        android:onClick=""
         tools:layout="@layout/fragment_add" >
         <action
             android:id="@+id/action_addFragment_to_mapFragment"

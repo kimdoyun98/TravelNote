@@ -2,6 +2,7 @@ package com.example.android.Activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.android.R
@@ -22,5 +23,6 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.main_fragment)
 
         binding.navBar.setupWithNavController(navController)
+
     }
 }

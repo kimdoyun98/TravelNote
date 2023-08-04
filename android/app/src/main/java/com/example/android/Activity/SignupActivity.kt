@@ -1,11 +1,14 @@
 package com.example.android.Activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import com.example.android.R
 import com.example.android.Retrofit.NetworkManager
 import com.example.android.Retrofit.repository
+import com.example.android.common.MyApplication
 import com.example.android.databinding.ActivityMainBinding
 import com.example.android.databinding.ActivitySignupBinding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -20,13 +23,18 @@ class SignupActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.SignupButton.setOnClickListener {
-            val username = binding.signupIdEdit.text.toString()
-            val password = binding.signupPasswordEdit.text.toString()
-            getRepository(
-                username,
-                password
-            )
+            if (binding.signupPasswordEdit.text.toString() !=
+                binding.signupCheckPassword.text.toString()){
+                Toast.makeText(this, "비밀번호 불일치", Toast.LENGTH_LONG).show()
+            }
+            else{
+                getRepository(
+                    binding.signupIdEdit.text.toString(),
+                    binding.signupPasswordEdit.text.toString()
+                )
+            }
         }
+
 
 
     }
@@ -38,8 +46,11 @@ class SignupActivity : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe({ it ->
                 Log.d("Success", "getRepository Success: ${it.username}")
+                Toast.makeText(this, "회원가입 완료", Toast.LENGTH_LONG).show()
+                finish()
             }, {
                 Log.d("Fail", "getRepository Error: ${it.message}")
+                Toast.makeText(this, "아이디 중복", Toast.LENGTH_LONG).show()
             })
 
     }
