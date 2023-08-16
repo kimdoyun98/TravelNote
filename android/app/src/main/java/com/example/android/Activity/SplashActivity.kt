@@ -37,7 +37,7 @@ class SplashActivity : AppCompatActivity() {
                 finish()
             }, {
                 Log.d("Fail", MyApplication.prefs.getString("token", "get token"))
-                val intent = Intent(this, LoginActivity::class.java)
+                val intent = Intent(this, MainActivity::class.java)
                 startActivity(intent)
                 finish()
             })

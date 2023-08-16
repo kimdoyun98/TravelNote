@@ -14,12 +14,4 @@ object NetworkManager {
             .baseUrl(baseUrl)
             .build()
     }
-
-
-    private val retrofit =
-        Retrofit.Builder()
-            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
-            .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(baseUrl)
-            .build()
 }
