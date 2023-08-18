@@ -1,4 +1,4 @@
-package com.example.android.Adapter.Add
+package com.example.android.Adapter.Gallery
 
 import android.media.Image
 

@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
     <data>
+        <variable
+            name="viewModel"
+            type="com.example.android.GalleryViewModel" />
+
+        <import type="android.view.View" />
     </data>
     <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -37,7 +42,8 @@
                     android:theme="@style/MyActionBar"
                     app:layout_collapseMode="pin"
                     app:titleTextColor="@color/white"
-                    app:title="New Post" />
+                    app:titleMarginTop="15dp"
+                    app:title="새 게시물" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
@@ -81,8 +87,8 @@
                     android:insetBottom="8dp"
                     android:paddingLeft="10dp"
                     android:paddingRight="10dp"
-                    android:text="여러항목선택"
                     android:textColor="#FFFFFF"
+                    android:onClick="@{viewModel.multiSelectButton}"
                     app:icon="@drawable/b_c"
                     app:iconSize="30dp"
                     app:iconTint="#FFFFFF"

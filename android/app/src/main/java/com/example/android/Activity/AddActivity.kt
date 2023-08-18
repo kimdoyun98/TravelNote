@@ -13,7 +13,7 @@ import android.view.MenuItem
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Observer
 import com.bumptech.glide.Glide
-import com.example.android.Adapter.Add.GalleryAdapter
+import com.example.android.Adapter.Gallery.GalleryAdapter
 import com.example.android.R
 import com.example.android.CheckPhotoData
 import com.example.android.GalleryViewModel
@@ -36,12 +36,15 @@ class AddActivity : AppCompatActivity() {
             val intent = Intent.ACTION_PICK
         }
 
-
         /**
          * 사진 가져오기
          */
         val gallery = getGallery()
         val viewModel = GalleryViewModel()
+
+        binding.viewModel = viewModel
+        binding.lifecycleOwner = this
+
         val galleryAdapter = GalleryAdapter(viewModel, this).apply {
             setGalleryPath(gallery)
         }

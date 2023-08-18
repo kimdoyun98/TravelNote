@@ -4,18 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.162" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/gallery_circle.xml" value="0.164" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/gallery_selector_color.xml" value="0.164" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.162" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/many_background.xml" value="0.162" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/menu_selector.xml" value="0.1195" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/rectangle.xml" value="0.1645" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout-v23/gallery_item.xml" value="0.24947916666666667" />
-        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_add.xml" value="0.1" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_add.xml" value="0.2" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_signup.xml" value="0.2" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_splash.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_home.xml" value="0.10092592592592593" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_mypage.xml" value="0.109375" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_search.xml" value="0.1" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/gallery_item.xml" value="0.1" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/item_img.xml" value="0.1" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/toolbar.xml" value="0.10092592592592593" />
@@ -30,5 +33,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.24947916666666667" />
+      </ProjectState>
+    </option>
   </component>
 </project>

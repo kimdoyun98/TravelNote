@@ -26,19 +26,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-<!--        <TextView-->
-<!--            android:layout_width="27dp"-->
-<!--            android:layout_height="27dp"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:layout_marginRight="13dp"-->
-<!--            android:background="@drawable/shape_select_picture_circle_bg"-->
-<!--            android:gravity="center"-->
-<!--            android:text='@{selectedImage.index == 0 ? "":selectedImage.index.toString()}'-->
-<!--            android:textColor="#FFFFFF"-->
-<!--            android:visibility="@{viewModel.isMultiSelect ? View.VISIBLE : View.GONE}"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/iv"-->
-<!--            app:layout_constraintTop_toTopOf="parent"-->
-<!--            select="@{selectedImage.index > 0}" />-->
+        <TextView
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginRight="13dp"
+            android:background="@drawable/gallery_circle"
+            android:gravity="center"
+            android:text='@{checkPhotoData.index == 0 ? "":checkPhotoData.index.toString()}'
+            android:textColor="#FFFFFF"
+            android:visibility="@{viewModel.multiSelect ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="@+id/iv"
+            app:layout_constraintTop_toTopOf="parent"
+            select="@{checkPhotoData.index > 0}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
