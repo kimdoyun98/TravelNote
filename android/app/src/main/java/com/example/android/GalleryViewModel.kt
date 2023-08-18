@@ -73,18 +73,18 @@ class GalleryViewModel() : ViewModel(){
      * 다중 선택 버튼 클릭
      */
     fun multiSelectButton(view:View){
-        _currentSelectedPhoto.postValue(checkCurrentPhoto[0].path.value)
         if (multiSelect.value == false){
             _multiSelect.postValue(true)
             view.setBackgroundColor(Color.parseColor("#0000FF"))
 
             if(multiCheckPhoto.isNullOrEmpty())
-                checkCurrentPhoto[0].path.value?.let { multiCheckPhoto.add(0, it) }
+                currentSelectedPhoto.value?.let { multiCheckPhoto.add(0, it) }
             refreshSelectList()
         }
         else{
             _multiSelect.postValue(false)
             view.setBackgroundColor(Color.parseColor("#404040"))
+            multiCheckPhoto.clear()
         }
     }
 }
