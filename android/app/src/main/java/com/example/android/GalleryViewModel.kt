@@ -1,13 +1,12 @@
 package com.example.android
 
 import android.graphics.Color
-import android.util.Log
 import android.view.View
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.android.Activity.AddActivity.StringToImage.toSelectImageList
+import com.example.android.activity.Gallery.StringToImage.toSelectImageList
 
 class GalleryViewModel() : ViewModel(){
     private var _currentSelectedPhoto = MutableLiveData<String>()

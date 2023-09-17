@@ -1,4 +1,4 @@
-package com.example.android.Activity
+package com.example.android.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
@@ -6,10 +6,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.widget.Toast
 import com.example.android.R
-import com.example.android.Retrofit.NetworkManager
-import com.example.android.Retrofit.repository
+import com.example.android.retrofit.NetworkManager
+import com.example.android.retrofit.repository
 import com.example.android.common.MyApplication
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -37,7 +36,7 @@ class SplashActivity : AppCompatActivity() {
                 finish()
             }, {
                 Log.d("Fail", MyApplication.prefs.getString("token", "get token"))
-                val intent = Intent(this, MainActivity::class.java)
+                val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 finish()
             })

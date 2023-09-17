@@ -1,13 +1,9 @@
-package com.example.android.Fragment
+package com.example.android.fragment
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import com.example.android.Activity.AddActivity
-import com.example.android.R
+import com.example.android.activity.Gallery
 
 
 class AddFragment : Fragment() {
@@ -16,7 +12,7 @@ class AddFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         activity?.let {
-            val intent = Intent(context, AddActivity::class.java)
+            val intent = Intent(context, Gallery::class.java)
             startActivity(intent)
         }
         activity?.finish()

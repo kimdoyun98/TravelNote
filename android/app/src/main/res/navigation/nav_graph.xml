@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.android.Fragment.HomeFragment"
+        android:name="com.example.android.fragment.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.android.Fragment.SearchFragment"
+        android:name="com.example.android.fragment.SearchFragment"
         android:label="fragment_personal"
         tools:layout="@layout/fragment_search" >
         <action
@@ -25,7 +25,7 @@
     </fragment>
     <fragment
         android:id="@+id/addFragment"
-        android:name="com.example.android.Fragment.AddFragment"
+        android:name="com.example.android.fragment.AddFragment"
         android:label="fragment_project"
         android:onClick=""
         tools:layout="@layout/fragment_add" >
@@ -35,7 +35,7 @@
     </fragment>
     <fragment
         android:id="@+id/mapFragment"
-        android:name="com.example.android.Fragment.MapFragment"
+        android:name="com.example.android.fragment.MapFragment"
         android:label="fragment_calender"
         tools:layout="@layout/fragment_map" >
         <action
@@ -44,7 +44,7 @@
     </fragment>
     <fragment
         android:id="@+id/mypageFragment"
-        android:name="com.example.android.Fragment.Mypage"
+        android:name="com.example.android.fragment.Mypage"
         android:label="fragment_cycle"
         tools:layout="@layout/fragment_mypage" />
 

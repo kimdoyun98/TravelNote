@@ -1,16 +1,14 @@
-package com.example.android.Activity
+package com.example.android.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.example.android.R
-import com.example.android.Retrofit.NetworkManager
-import com.example.android.Retrofit.repository
+import com.example.android.retrofit.NetworkManager
+import com.example.android.retrofit.repository
 import com.example.android.common.MyApplication
 import com.example.android.databinding.ActivityLoginBinding
-import com.example.android.databinding.ActivitySignupBinding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 

@@ -1,4 +1,4 @@
-package com.example.android.Retrofit.DTO
+package com.example.android.retrofit.DTO
 
 import java.io.Serializable
 
