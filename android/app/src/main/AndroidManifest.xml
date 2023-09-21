@@ -24,25 +24,28 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".activity.AddressSearchActivity"
+            android:name=".activity.search.SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.post.AddressSearchActivity"
             android:exported="false" />
         <activity
             android:name=".activity.DaumAddressActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.PreviewActivity"
+            android:name=".activity.post.PreviewActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.PostActivity"
+            android:name=".activity.post.PostActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.Gallery"
+            android:name=".activity.post.Gallery"
             android:exported="false" />
         <activity
-            android:name=".activity.SignupActivity"
+            android:name=".activity.sign.SignupActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.LoginActivity"
+            android:name=".activity.sign.LoginActivity"
             android:exported="false" />
         <activity
             android:name=".activity.SplashActivity"

@@ -1,1 +1,5 @@
 django~=3.0.14
+djangorestframework
+djangorestframework-jwt
+django-cors-headers
+django-pydenticon

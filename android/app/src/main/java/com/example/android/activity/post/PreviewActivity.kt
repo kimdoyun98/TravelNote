@@ -1,4 +1,4 @@
-package com.example.android.activity
+package com.example.android.activity.post
 
 import android.os.Bundle
 import android.view.MenuItem

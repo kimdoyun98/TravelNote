@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#000000"
-    tools:context=".activity.AddressSearchActivity">
+    tools:context=".activity.post.AddressSearchActivity">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/addressToolbar"
@@ -18,7 +18,7 @@
         app:titleTextColor="@color/white" />
 
     <androidx.appcompat.widget.SearchView
-        android:id="@+id/searchView"
+        android:id="@+id/addressSearchView"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_margin="10dp"

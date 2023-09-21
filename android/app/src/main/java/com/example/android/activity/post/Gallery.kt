@@ -1,8 +1,9 @@
-package com.example.android.activity
+package com.example.android.activity.post
 
 import android.Manifest.permission.*
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -18,6 +19,7 @@ import com.example.android.adapter.gallery.GalleryAdapter
 import com.example.android.R
 import com.example.android.CheckPhotoData
 import com.example.android.GalleryViewModel
+import com.example.android.activity.MainActivity
 import com.example.android.databinding.ActivityAddBinding
 
 class Gallery : AppCompatActivity() {
@@ -115,7 +117,7 @@ class Gallery : AppCompatActivity() {
     }
 
     private fun getGallery(): ArrayList<String> {
-        var folderList = ArrayList<String>()
+        var fileList = ArrayList<String>()
         val url = MediaStore.Images.Media.EXTERNAL_CONTENT_URI
         val projection = arrayOf(
             MediaStore.Images.Media.DATA,
@@ -129,12 +131,12 @@ class Gallery : AppCompatActivity() {
                     MediaStore.Images.Media.DATA
                 )
                 val filePath = cursor.getString(columnIndex)
-                folderList.add(filePath)
+                fileList.add(filePath)
             }
             cursor.close()
         }
 
-        return folderList.reversed() as ArrayList<String>
+        return fileList.reversed() as ArrayList<String>
 
     }
 

@@ -6,7 +6,7 @@ import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.android.activity.Gallery.StringToImage.toSelectImageList
+import com.example.android.activity.post.Gallery.StringToImage.toSelectImageList
 
 class GalleryViewModel() : ViewModel(){
     private var _currentSelectedPhoto = MutableLiveData<String>()

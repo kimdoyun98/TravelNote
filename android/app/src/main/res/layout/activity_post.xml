@@ -15,7 +15,7 @@
         android:orientation="vertical"
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
-        tools:context=".activity.PostActivity">
+        tools:context=".activity.post.PostActivity">
 
         <com.google.android.material.appbar.MaterialToolbar
             android:id="@+id/postToolbar"
@@ -43,7 +43,7 @@
                 tools:srcCompat="@tools:sample/avatars" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/caption"
                 android:layout_width="320dp"
                 android:layout_height="54dp"
                 android:layout_gravity="center"

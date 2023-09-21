@@ -3,7 +3,7 @@ package com.example.android.fragment
 import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import com.example.android.activity.Gallery
+import com.example.android.activity.post.Gallery
 
 
 class AddFragment : Fragment() {

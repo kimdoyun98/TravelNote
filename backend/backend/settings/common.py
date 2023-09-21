@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'accounts',
     'travelnote',
 
-    'rest_framework'
+    'rest_framework',
+    'django_pydenticon',
 ]
 
 MIDDLEWARE = [
@@ -59,9 +60,9 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'backend.urls'
 
 TEMPLATES = [
-    {
+    {   
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,8 +133,8 @@ STATIC_ROOT = join(BASE_DIR, 'static')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = join(BASE_DIR, 'media')
 
-REST_FRANEWORK = {
-    "DEFAULT_PERMISSTION_CLASSES": ["rest_framework.permissions.IsAuthenticated",],
+REST_FRAMEWORK = {
+    "DEFAULT_PERMISSION_CLASSES": ["rest_framework.permissions.IsAuthenticated",],
     "DEFAULT_AUTHENTICATION_CLASSES": [
         "rest_framework_jwt.authentication.JSONWebTokenAuthentication",
         "rest_framework.authentication.SessionAuthentication",
@@ -141,7 +142,7 @@ REST_FRANEWORK = {
 }
 
 JWT_AUTH = {
-    "JWT_SECRET_KEY": SECRET_KEY, #FIXME: JWT_SECRET_KEY
+    "JWT_SECRET_KEY": SECRET_KEY,  # FIXME: JWT_SECRET_KEY
     "JWT_ALGORITHM": "HS256",
     "JWT_ALLOW_REFRESH": True,
     "JWT_EXPIRATION_DELTA": timedelta(days=7),

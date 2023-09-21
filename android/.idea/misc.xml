@@ -4,9 +4,12 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.162" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/circle.xml" value="0.1795" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/gallery_circle.xml" value="0.164" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/gallery_selector_color.xml" value="0.164" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/ic_administrative_divisions_map_of_south_korea.xml" value="0.176" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.162" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/koreamap.xml" value="0.1105" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/many_background.xml" value="0.162" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/menu_selector.xml" value="0.1195" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/rectangle.xml" value="0.1645" />
@@ -19,14 +22,18 @@
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_post.xml" value="0.176" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_preview.xml" value="0.1" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_search.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_signup.xml" value="0.2" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_splash.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/address_search_item.xml" value="0.16" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_add.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_home.xml" value="0.10092592592592593" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_map.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_mypage.xml" value="0.109375" />
-        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_search.xml" value="0.1" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_search.xml" value="0.2" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/gallery_item.xml" value="0.1" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/home_item.xml" value="0.24947916666666667" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/home_viewpager.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/item_img.xml" value="0.1" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/preview_item.xml" value="0.1" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/search_item.xml" value="0.2" />

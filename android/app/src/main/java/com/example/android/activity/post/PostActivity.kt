@@ -1,18 +1,36 @@
-package com.example.android.activity
+package com.example.android.activity.post
 
+import android.content.Context
 import android.content.Intent
+import android.database.Cursor
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.android.R
+import com.example.android.activity.MainActivity
+import com.example.android.common.MyApplication
 import com.example.android.databinding.ActivityPostBinding
+import com.example.android.retrofit.NetworkManager
+import com.example.android.retrofit.repository
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
+import okhttp3.MediaType
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.ResponseBody
+import retrofit2.http.Path
+import java.io.File
 
 class PostActivity : AppCompatActivity() {
     lateinit var binding : ActivityPostBinding
     lateinit var paths : ArrayList<String>
+    lateinit var path: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +43,7 @@ class PostActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         paths = intent.getSerializableExtra("paths") as ArrayList<String>
-        val path = intent.getStringExtra("path")
+        path = intent.getStringExtra("path")!! // 좌측 상단 사진 띄워놓을 용도
 
         binding.pathsSize = paths.size
 
@@ -50,6 +68,9 @@ class PostActivity : AppCompatActivity() {
         }
 
 
+        //TODO 친구 태그
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -62,12 +83,39 @@ class PostActivity : AppCompatActivity() {
             android.R.id.home -> {
                 val intent = Intent(this, Gallery::class.java)
                 startActivity(intent)
+                finish()
             }
             R.id.nextAddToolbar -> {
                 //TODO 등록
+                val photofile = File(path)
+                val photo = RequestBody.create(MediaType.parse("image/jpeg"), photofile)
+                val filePart : MultipartBody.Part = MultipartBody.Part.createFormData("photo","photo.jpg", photo)
+                val caption = RequestBody.create(MediaType.parse("text/plain"), binding.caption.text.toString())
+                val location = RequestBody.create(MediaType.parse("text/plain"), binding.locationAdd.text.toString())
+
+                val retrofit = NetworkManager.getRetrofitInstance().create(repository::class.java)
+                retrofit.writePost(//photo, caption, location , tag_set, like_user_set
+                    "JWT "+ MyApplication.prefs.getString("token",""),
+                    filePart,
+                    caption,
+                    location)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(
+                        {
+                            Toast.makeText(this, "등록했습니다.", Toast.LENGTH_LONG).show()
+                            val intent = Intent(this, MainActivity::class.java)
+                            startActivity(intent)
+                            finish()
+                        },
+                        {
+                            Log.e("writePostFail", it.message.toString())
+                            Toast.makeText(this, "실패했습니다.", Toast.LENGTH_LONG).show()
+                        }
+                    )
             }
         }
-        finish()
+
         return super.onOptionsItemSelected(item)
     }
 

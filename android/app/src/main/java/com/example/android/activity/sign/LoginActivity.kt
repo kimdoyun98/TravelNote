@@ -1,10 +1,11 @@
-package com.example.android.activity
+package com.example.android.activity.sign
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.android.activity.MainActivity
 import com.example.android.retrofit.NetworkManager
 import com.example.android.retrofit.repository
 import com.example.android.common.MyApplication

@@ -1,4 +1,4 @@
-package com.example.android.activity
+package com.example.android.activity.post
 
 import android.os.Bundle
 import android.util.Log
@@ -45,7 +45,7 @@ class AddressSearchActivity : AppCompatActivity() {
 
         val retrofit = NetworkManager.getAddressSearchInstance().create(repository::class.java)
 
-        binding.searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+        binding.addressSearchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 Log.e("setOnQueryTextListener", query.toString())
                 return false
