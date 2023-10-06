@@ -6,8 +6,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.android.R
 import com.example.android.GalleryViewModel
+import com.example.android.R
 import com.example.android.databinding.GalleryItemBinding
 
 class GalleryAdapter(private val galleryViewModel: GalleryViewModel, private val lifecycleOwner: LifecycleOwner):
@@ -59,5 +59,4 @@ class GalleryAdapter(private val galleryViewModel: GalleryViewModel, private val
     override fun getItemCount(): Int {
         return galleryList.size
     }
-
 }

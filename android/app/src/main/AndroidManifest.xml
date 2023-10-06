@@ -30,9 +30,6 @@
             android:name=".activity.post.AddressSearchActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.DaumAddressActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.post.PreviewActivity"
             android:exported="false" />
         <activity

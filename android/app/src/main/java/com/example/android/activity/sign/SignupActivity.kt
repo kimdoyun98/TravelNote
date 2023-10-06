@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import com.example.android.retrofit.NetworkManager
-import com.example.android.retrofit.repository
+import com.example.android.retrofit.httpRepository
 import com.example.android.databinding.ActivitySignupBinding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -36,7 +36,7 @@ class SignupActivity : AppCompatActivity() {
     }
 
     private fun getRepository(username: String, password: String) {
-        NetworkManager.getRetrofitInstance().create(repository::class.java)
+        NetworkManager.getRetrofitInstance().create(httpRepository::class.java)
             .postSignup(username, password)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

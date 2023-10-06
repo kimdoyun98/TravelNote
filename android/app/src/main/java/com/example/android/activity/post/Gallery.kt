@@ -20,14 +20,14 @@ import com.example.android.R
 import com.example.android.CheckPhotoData
 import com.example.android.GalleryViewModel
 import com.example.android.activity.MainActivity
-import com.example.android.databinding.ActivityAddBinding
+import com.example.android.databinding.ActivityGalleryBinding
 
 class Gallery : AppCompatActivity() {
-    lateinit var binding : ActivityAddBinding
+    lateinit var binding : ActivityGalleryBinding
     val viewModel:GalleryViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityAddBinding.inflate(layoutInflater)
+        binding = ActivityGalleryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         setSupportActionBar(binding.galleryToolbar)

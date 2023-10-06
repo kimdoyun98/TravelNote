@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mapLinearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragment.MapFragment">
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/postToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#000000"
+        android:theme="@style/MyActionBar"
+        app:layout_collapseMode="pin"
+        app:title="지도"
+        app:titleMarginTop="15dp"
+        app:titleTextColor="@color/white" />
 
-    <ImageView
-        android:id="@+id/koreaMap"
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        app:tabMode="fixed"
+        app:tabBackground="@drawable/tab_style"
+        app:tabIconTint="@drawable/tab_select"
+        app:tabTextColor="@drawable/tab_select"
+        app:tabIndicatorHeight="0dp">
+
+    </com.google.android.material.tabs.TabLayout>
+    <androidx.viewpager2.widget.ViewPager2
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/koreamap" />
-</FrameLayout>
+        android:id="@+id/mapViewPager"
+        />
+</LinearLayout>

@@ -9,7 +9,7 @@ import android.util.Log
 import com.example.android.R
 import com.example.android.activity.sign.LoginActivity
 import com.example.android.retrofit.NetworkManager
-import com.example.android.retrofit.repository
+import com.example.android.retrofit.httpRepository
 import com.example.android.common.MyApplication
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -26,7 +26,7 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun getRepository() {
-        NetworkManager.getRetrofitInstance().create(repository::class.java)
+        NetworkManager.getRetrofitInstance().create(httpRepository::class.java)
             .postVerifyToken(MyApplication.prefs.getString("token", "token get"))
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

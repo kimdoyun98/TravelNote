@@ -7,7 +7,7 @@ import android.util.Log
 import android.widget.Toast
 import com.example.android.activity.MainActivity
 import com.example.android.retrofit.NetworkManager
-import com.example.android.retrofit.repository
+import com.example.android.retrofit.httpRepository
 import com.example.android.common.MyApplication
 import com.example.android.databinding.ActivityLoginBinding
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -35,7 +35,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun getRepository(username: String, password: String) {
-        NetworkManager.getRetrofitInstance().create(repository::class.java)
+        NetworkManager.getRetrofitInstance().create(httpRepository::class.java)
             .postLogin(username, password)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

@@ -5,7 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.databinding.AddressSearchItemBinding
-import com.example.android.retrofit.DTO.AddressDTO
+import com.example.android.retrofit.dto.AddressDTO
 
 class AddressAdapter : RecyclerView.Adapter<AddressAdapter.ViewHolder>(){
     private lateinit var binding : AddressSearchItemBinding

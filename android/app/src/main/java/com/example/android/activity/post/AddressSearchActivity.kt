@@ -8,7 +8,7 @@ import androidx.appcompat.widget.SearchView
 import com.example.android.adapter.searchaddress.AddressAdapter
 import com.example.android.databinding.ActivityAddressSearchBinding
 import com.example.android.retrofit.NetworkManager
-import com.example.android.retrofit.repository
+import com.example.android.retrofit.httpRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.disposables.Disposable
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -43,7 +43,7 @@ class AddressSearchActivity : AppCompatActivity() {
 
         binding.addressRecyclerView.adapter = adapter
 
-        val retrofit = NetworkManager.getAddressSearchInstance().create(repository::class.java)
+        val retrofit = NetworkManager.getAddressSearchInstance().create(httpRepository::class.java)
 
         binding.addressSearchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
