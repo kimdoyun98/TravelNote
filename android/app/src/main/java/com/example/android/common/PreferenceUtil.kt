@@ -11,7 +11,7 @@ class PreferenceUtil (context: Context) {
         return prefs.getString(key, defValue).toString()
     }
 
-    fun setString(key: String, str: String) {
+    fun setString(key: String, str: String?) {
         prefs.edit().putString(key, str).apply()
     }
 }

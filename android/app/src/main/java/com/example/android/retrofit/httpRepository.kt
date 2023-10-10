@@ -12,6 +12,9 @@ import okhttp3.RequestBody
 import retrofit2.http.*
 
 interface httpRepository {
+    /**
+     * 로그인 관련
+     */
     @FormUrlEncoded
     @POST("/accounts/signup/")
     fun postSignup(@Field("username") username:String,
@@ -26,17 +29,31 @@ interface httpRepository {
     @POST("/accounts/token/verify/")
     fun postVerifyToken(@Field("token") token:String):Single<TokenData>
 
+    /**
+     * 포스팅 관련
+     */
+    // 포스팅 작성
     @Multipart
     @POST("/api/posts/")
-    fun writePost(@Header("Authorization") token : String,
-                  @Part photo : MultipartBody.Part,
+    fun writePost(@Part photo : MultipartBody.Part,
                   @Part("caption") caption : RequestBody?,
                   @Part("location") location : RequestBody)
     :Single<Any>
 
+    //포스팅 목록 리스트
     @GET("/api/posts/")
-    fun getPost(@Header("Authorization") token : String) : Observable<ArrayList<PostingData>>
+    fun getPost() : Observable<ArrayList<PostingData>>
 
+    //포스팅 좋아요 & 취소
+    @POST("/api/posts/{post_id}/like/")
+    fun likePost(@Path("post_id") post_id : String) : Single<Any>
+
+    @DELETE("/api/posts/{post_id}/like/")
+    fun unLikePost(@Path("post_id") post_id : String) : Single<Any>
+
+    /**
+     * 공공 api 도로명 주소
+     */
     @GET("addrLinkApi.do?currentPage=1&countPerPage=10&resultType=json")
     fun getAddress(@Query("keyword") keyword: String?,
                    @Query("confmKey") confmkey: String = Secret.AddressSecretKey):Observable<AddressDTO>

@@ -25,7 +25,7 @@ class GetPostingViewModel : ViewModel() {
 
     fun getPostingInServer(){
         val retrofit = NetworkManager.getRetrofitInstance().create(httpRepository::class.java)
-        retrofit.getPost("jwt "+MyApplication.prefs.getString("token", ""))
+        retrofit.getPost()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(

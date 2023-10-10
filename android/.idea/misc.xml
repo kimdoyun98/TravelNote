@@ -12,8 +12,10 @@
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.162" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/koreamap.xml" value="0.16799999999999998" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/koreamap2.xml" value="0.1815" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/logout_dialog.xml" value="0.1605" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/many_background.xml" value="0.162" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/menu_selector.xml" value="0.1195" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/mypage_menu_rectangle.xml" value="0.174" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/rectangle.xml" value="0.1645" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/search_rectangle.xml" value="0.1095" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/drawable/tab_background_select.xml" value="0.1105" />
@@ -24,7 +26,7 @@
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_address_search.xml" value="0.2" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_location_set.xml" value="0.144" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_login.xml" value="0.2" />
-        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_post.xml" value="0.176" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_preview.xml" value="0.1" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/activity_search.xml" value="0.24947916666666667" />
@@ -36,21 +38,23 @@
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_home.xml" value="0.10092592592592593" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_map.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_map2.xml" value="0.1" />
-        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_mypage.xml" value="0.109375" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_mypage.xml" value="0.2" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_never_visited_location.xml" value="0.1" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_search.xml" value="0.2" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_state_map.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/fragment_visited_location.xml" value="0.2" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/gallery_item.xml" value="0.1" />
-        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/home_item.xml" value="0.176" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/home_item.xml" value="0.2" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/home_viewpager.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/item_img.xml" value="0.1" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/logout_dialog.xml" value="0.264" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/preview_item.xml" value="0.1" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/search_item.xml" value="0.2" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/state_list_item.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/layout/toolbar.xml" value="0.10092592592592593" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/menu/add_toolbar.xml" value="0.11574074074074074" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/menu/bottom_nav.xml" value="0.109375" />
+        <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/menu/mypage_menu.xml" value="0.24947916666666667" />
         <entry key="..\:/Users/KDOY/Desktop/TravelNote/android/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.162" />
       </map>
     </option>

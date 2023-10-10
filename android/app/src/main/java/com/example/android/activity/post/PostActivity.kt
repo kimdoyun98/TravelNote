@@ -92,7 +92,6 @@ class PostActivity : AppCompatActivity() {
 
                     val retrofit = NetworkManager.getRetrofitInstance().create(httpRepository::class.java)
                     retrofit.writePost(//photo, caption, location , tag_set, like_user_set
-                        "JWT "+ MyApplication.prefs.getString("token",""),
                         filePart,
                         caption,
                         location)

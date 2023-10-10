@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.android.GetPostingViewModel
 import com.example.android.adapter.home.HomeAdapter
+import com.example.android.common.MyApplication
 import com.example.android.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
