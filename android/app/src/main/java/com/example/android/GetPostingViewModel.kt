@@ -17,14 +17,20 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 
 
 class GetPostingViewModel : ViewModel() {
+    private val retrofit = NetworkManager.getRetrofitInstance().create(httpRepository::class.java)
+
+
     private var _posting = MutableLiveData<ArrayList<PostingData>>()
     var posting : LiveData<ArrayList<PostingData>> = _posting
 
     private var _selectState = MutableLiveData<String>().apply { value = "No Select" }
     val selectState : LiveData<String> = _selectState
 
+    /**
+     * Home Fragment
+     */
+    // 포스팅 목록
     fun getPostingInServer(){
-        val retrofit = NetworkManager.getRetrofitInstance().create(httpRepository::class.java)
         retrofit.getPost()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -37,7 +43,42 @@ class GetPostingViewModel : ViewModel() {
                 }
             )
     }
+    // 좋아요
+    fun likePosting(posting_id:Int){
+        retrofit.likePost(posting_id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    Log.e("success like", it.toString())
+                    //getPostingInServer()
+                },
+                {
+                    Log.e("like", it.message.toString())
+                }
+            )
+    }
 
+    //좋아요 취소
+    fun unlikePosting(posting_id:Int){
+        retrofit.unLikePost(posting_id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    Log.e("success unlike", it.toString())
+                    //getPostingInServer()
+                },
+                {
+                    Log.e("unlike", it.message.toString())
+                }
+            )
+    }
+
+
+    /**
+     * Map Fragment
+     */
     fun cityCount(city:String) : String{
         return StateUtils.hashList[city]?.size.toString()
     }

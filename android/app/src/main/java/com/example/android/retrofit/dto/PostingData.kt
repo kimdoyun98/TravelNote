@@ -11,7 +11,7 @@ data class PostingData(
     @SerializedName("caption") val caption: String,
     @SerializedName("location") val location: String,
     @SerializedName("tag_set") val tag_set: ArrayList<Any>,
-    @SerializedName("like_user_set") val like_user_set: ArrayList<Any>
+    @SerializedName("is_like") val is_like: Boolean
     )
 {
     data class User(

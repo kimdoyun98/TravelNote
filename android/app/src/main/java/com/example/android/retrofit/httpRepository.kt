@@ -46,10 +46,10 @@ interface httpRepository {
 
     //포스팅 좋아요 & 취소
     @POST("/api/posts/{post_id}/like/")
-    fun likePost(@Path("post_id") post_id : String) : Single<Any>
+    fun likePost(@Path("post_id") post_id : Int) : Single<Any>
 
     @DELETE("/api/posts/{post_id}/like/")
-    fun unLikePost(@Path("post_id") post_id : String) : Single<Any>
+    fun unLikePost(@Path("post_id") post_id : Int) : Single<Any>
 
     /**
      * 공공 api 도로명 주소

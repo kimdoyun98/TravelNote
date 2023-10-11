@@ -1,33 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="#000000"
-    tools:context=".fragment.HomeFragment">
-
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/postToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#000000"
-        android:theme="@style/MyActionBar"
-        app:layout_collapseMode="pin"
-        app:title="TravelNote"
-        app:titleMarginTop="15dp"
-        app:titleTextColor="@color/white" />
-
+    >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="#000000"
+        tools:context=".fragment.HomeFragment">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/home_recyclerview"
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/postToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#000000"
+            android:theme="@style/MyActionBar"
+            app:layout_collapseMode="pin"
+            app:title="TravelNote"
+            app:titleMarginTop="15dp"
+            app:titleTextColor="@color/white" />
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+            android:orientation="vertical">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/home_recyclerview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+
+    <SlidingDrawer
+        android:id="@+id/commentSlide"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:allowSingleTap="true"
+        android:animateOnClick="true"
+        android:bottomOffset="20dp"
+        android:content="@+id/commentRecycler"
+        android:handle="@+id/handle"
+        android:orientation="vertical"
+        android:topOffset="0dp">
+
+        <LinearLayout
+            android:id="@+id/handle"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:background="@drawable/mypage_menu_rectangle"
+            android:orientation="vertical">
+
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="17dp"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="#d3d3d3" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/commentRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/darkgray"/>
+    </SlidingDrawer>
+
+
+</FrameLayout>

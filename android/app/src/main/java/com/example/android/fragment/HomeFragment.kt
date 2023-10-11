@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.android.GetPostingViewModel
 import com.example.android.adapter.home.HomeAdapter
+import com.example.android.adapter.home.HomeClickEvent
 import com.example.android.common.MyApplication
 import com.example.android.databinding.FragmentHomeBinding
 
@@ -21,7 +22,7 @@ class HomeFragment : Fragment() {
         binding = FragmentHomeBinding.bind(view)
 
         Log.e("HomeFragment", "start")
-
+        Log.e("token", MyApplication.prefs.getString("token", ""))
         val adapter = HomeAdapter(viewModel, this)
         binding.homeRecyclerview.adapter = adapter
 
@@ -29,8 +30,24 @@ class HomeFragment : Fragment() {
 
         viewModel.posting.observe(viewLifecycleOwner) {
             adapter.setPosting(it)
-            Log.e("setPosting", it.toString())
+            Log.e("posting.observe", it.toString())
         }
+
+        adapter.commentClick(object : HomeClickEvent {
+            override fun readCommentClickEvent(posting_id: Int) {
+                binding.commentSlide.animateOpen()
+                //TODO 댓글 목록만
+            }
+
+            override fun writeCommentClickEvent() {
+                TODO("Not yet implemented")
+            }
+
+        })
+
+
+
+
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
