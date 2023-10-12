@@ -100,6 +100,10 @@ class HomeAdapter(
             }
 
             binding.executePendingBindings()
+
+            //포스팅 글
+            if(!postingArray[position].caption.isNullOrEmpty()) binding.caption.visibility = View.VISIBLE
+            else binding.caption.visibility = View.GONE
         }
 
     }
