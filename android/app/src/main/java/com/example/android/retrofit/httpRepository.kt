@@ -1,10 +1,7 @@
 package com.example.android.retrofit
 
 import com.example.android.Secret
-import com.example.android.retrofit.dto.AddressDTO
-import com.example.android.retrofit.dto.PostingData
-import com.example.android.retrofit.dto.TokenData
-import com.example.android.retrofit.dto.signupDTO
+import com.example.android.retrofit.dto.*
 import io.reactivex.rxjava3.core.Observable
 import io.reactivex.rxjava3.core.Single
 import okhttp3.MultipartBody
@@ -50,6 +47,14 @@ interface httpRepository {
 
     @DELETE("/api/posts/{post_id}/like/")
     fun unLikePost(@Path("post_id") post_id : Int) : Single<Any>
+
+    //포스팅 댓글
+    @GET("/api/posts/{post_id}/comments/")
+    fun getComment(@Path("post_id") post_id : Int) : Single<ArrayList<Comment>>
+
+    @FormUrlEncoded
+    @POST("/api/posts/{post_id}/comments/")
+    fun writeComment(@Path("post_id") post_id : Int, @Field("message") comment: String) : Single<Any>
 
     /**
      * 공공 api 도로명 주소

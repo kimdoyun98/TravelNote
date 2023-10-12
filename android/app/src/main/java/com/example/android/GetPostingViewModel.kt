@@ -1,15 +1,16 @@
 package com.example.android
 
 import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bumptech.glide.Glide
-import com.example.android.common.MyApplication
 import com.example.android.common.StateUtils
 import com.example.android.retrofit.NetworkManager
+import com.example.android.retrofit.dto.Comment
 import com.example.android.retrofit.dto.PostingData
 import com.example.android.retrofit.httpRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
@@ -25,6 +26,9 @@ class GetPostingViewModel : ViewModel() {
 
     private var _selectState = MutableLiveData<String>().apply { value = "No Select" }
     val selectState : LiveData<String> = _selectState
+
+    private var _comment = MutableLiveData<ArrayList<Comment>>()
+    val comment : LiveData<ArrayList<Comment>> = _comment
 
     /**
      * Home Fragment
@@ -75,6 +79,37 @@ class GetPostingViewModel : ViewModel() {
             )
     }
 
+    //댓글
+    fun getComment(post_id : Int){
+        retrofit.getComment(post_id)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    Log.e("getComment", it.toString())
+                    _comment.postValue(it)
+                },
+                {
+                    Log.e("getComment", it.message.toString())
+                }
+            )
+
+    }
+    fun writeComment(post_id: Int, comment: String){
+        retrofit.writeComment(post_id, comment)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    Log.e("writeComment", it.toString())
+                    getComment(post_id)
+                },
+                {
+                    Log.e("writeComment", it.message.toString())
+                }
+            )
+    }
+
 
     /**
      * Map Fragment
@@ -97,5 +132,9 @@ class GetPostingViewModel : ViewModel() {
             }
         }
 
+//        @BindingAdapter("topOffset")
+//        fun setTopOffSet(view: View, dimen: Float){
+//            view.update
+//        }
     }
 }

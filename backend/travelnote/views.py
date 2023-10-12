@@ -11,7 +11,7 @@ from rest_framework.viewsets import ModelViewSet
 from .models import Post, Comment
 from .serializers import PostSerializer, CommentSerializer
 
-# Create your views here.
+# 좋아요 및 포스팅 목록
 class PostViewSet(ModelViewSet):
     queryset = Post.objects.all().select_related("author").prefetch_related("tag_set", "like_user_set")
     serializer_class = PostSerializer

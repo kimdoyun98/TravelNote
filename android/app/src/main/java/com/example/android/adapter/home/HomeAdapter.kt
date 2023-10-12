@@ -96,12 +96,7 @@ class HomeAdapter(
 
             //댓글 버튼
             binding.commentButton.setOnClickListener {
-                commentClickEvent.readCommentClickEvent(postingArray[position].id)
-            }
-
-            //댓글 쓰기 버튼
-            binding.addComment.setOnClickListener {
-                commentClickEvent.writeCommentClickEvent()
+                commentClickEvent.CommentClickEvent(postingArray[position].id)
             }
 
             binding.executePendingBindings()
@@ -120,10 +115,6 @@ class HomeAdapter(
     // Set
     override fun onBindViewHolder(holder: HomeAdapter.ViewHolder, position: Int) {
         holder.bind(position)
-    }
-
-    override fun onViewRecycled(holder: ViewHolder) {
-        super.onViewRecycled(holder)
     }
 
     override fun getItemViewType(position: Int): Int {
