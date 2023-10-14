@@ -36,7 +36,7 @@ class SignupActivity : AppCompatActivity() {
     }
 
     private fun getRepository(username: String, password: String) {
-        NetworkManager.getRetrofitInstance().create(httpRepository::class.java)
+        NetworkManager.noHeaderRetrofitInstance().create(httpRepository::class.java)
             .postSignup(username, password)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
