@@ -131,10 +131,5 @@ class GetPostingViewModel : ViewModel() {
                 Glide.with(view.context).load(it).circleCrop().into(view)
             }
         }
-
-//        @BindingAdapter("topOffset")
-//        fun setTopOffSet(view: View, dimen: Float){
-//            view.update
-//        }
     }
 }

@@ -28,6 +28,18 @@ class SuggestionListAPIView(ListAPIView):
         )
         return qs
 
+#유저 검색
+class SearchUserListAPIView(ListAPIView):
+    queryset = get_user_model().objects.all()
+    serializer_class = SuggestionUserSerializer
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        query = self.request.GET["key"]
+        qs = qs.filter(username__contains=query)
+        return qs
+        
+
 
 @api_view(["POST"])
 def user_follow(request):

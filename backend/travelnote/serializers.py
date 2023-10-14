@@ -48,7 +48,7 @@ class PostSerializer(serializers.ModelSerializer):
             "is_like",
         ]
 
-#아마 댓글
+# 댓글
 class CommentSerializer(serializers.ModelSerializer):
     author = AuthorSerializer(read_only=True)
 

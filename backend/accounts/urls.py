@@ -7,11 +7,8 @@ urlpatterns = [
     path('token/', obtain_jwt_token),
     path('token/refresh/', refresh_jwt_token),
     path('token/verify/', verify_jwt_token),
-    path(
-        "suggestions/",
-        views.SuggestionListAPIView.as_view(),
-        name="suggestion_user_list",
-    ),
+    path("suggestions/", views.SuggestionListAPIView.as_view(), name="suggestion_user_list"),
     path("follow/", views.user_follow, name="user_follow"),
     path("unfollow/", views.user_unfollow, name="user_unfollow"),
+    path("search/user/", views.SearchUserListAPIView.as_view(), name="user_search"),
 ]

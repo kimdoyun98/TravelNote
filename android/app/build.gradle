@@ -74,4 +74,7 @@ dependencies {
 
     //PhotoView(Zoom)
     implementation 'com.github.chrisbanes:PhotoView:2.0.0'
+
+    //StickyScrollView
+    implementation 'com.github.amarjain07:StickyScrollView:1.0.3'
 }

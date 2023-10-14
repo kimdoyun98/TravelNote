@@ -1,31 +1,44 @@
 package com.example.android.fragment
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
-import com.example.android.R
-import com.example.android.activity.post.Gallery
-import com.example.android.activity.search.SearchActivity
+import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.LifecycleOwner
+import com.example.android.SearchUserViewModel
+import com.example.android.adapter.search_user.SearchUserAdapter
 import com.example.android.databinding.FragmentSearchBinding
 
 class SearchFragment : Fragment() {
     lateinit var binding : FragmentSearchBinding
+    private val viewModel : SearchUserViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentSearchBinding.bind(view)
 
-        binding.searchView.setOnClickListener{
-            activity?.let {
-                val intent = Intent(context, SearchActivity::class.java)
-                startActivity(intent)
+        val searchUserAdapter = SearchUserAdapter(this)
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                TODO("Not yet implemented")
             }
-        }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.getUserList(newText)
+                viewModel.userList.observe(viewLifecycleOwner){
+                    binding.searchedItem.adapter = searchUserAdapter.apply{
+                        setUserList(it)
+                    }
+                }
+                return false
+            }
+
+        })
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

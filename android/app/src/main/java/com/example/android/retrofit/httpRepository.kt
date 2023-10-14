@@ -27,6 +27,13 @@ interface httpRepository {
     fun postVerifyToken(@Field("token") token:String):Single<TokenData>
 
     /**
+     * 유저 검색
+     */
+    @GET("/accounts/search/user/")
+    fun searchUser(@Query("key") key:String?) : Single<ArrayList<SearchUser>>
+
+
+    /**
      * 포스팅 관련
      */
     // 포스팅 작성

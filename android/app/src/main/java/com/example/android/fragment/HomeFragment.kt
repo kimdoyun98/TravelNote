@@ -69,7 +69,8 @@ class HomeFragment : Fragment() {
         super.onAttach(context)
         callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
-                binding.commentSlide.animateClose()
+                if(binding.commentSlide.isOpened)
+                    binding.commentSlide.animateClose()
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(this, callback)

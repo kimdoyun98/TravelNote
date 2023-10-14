@@ -20,6 +20,14 @@ object NetworkManager {
             .build()
     }
 
+    fun noHeaderRetrofitInstance(): Retrofit{
+        return Retrofit.Builder()
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
+            .baseUrl(Secret.BaseUrl)
+            .build()
+    }
+
     fun getAddressSearchInstance():Retrofit{
         return Retrofit.Builder()
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
