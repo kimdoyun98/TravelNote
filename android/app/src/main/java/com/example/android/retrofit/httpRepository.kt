@@ -27,11 +27,27 @@ interface httpRepository {
     fun postVerifyToken(@Field("token") token:String):Single<TokenData>
 
     /**
+     * 내 정보
+     */
+    @GET("/accounts/mydata/")
+    fun getMyData() : Single<ArrayList<UserData>>
+
+    /**
      * 유저 검색
      */
     @GET("/accounts/search/user/")
-    fun searchUser(@Query("key") key:String?) : Single<ArrayList<SearchUser>>
+    fun searchUser(@Query("key") key:String?) : Single<ArrayList<UserData>>
 
+    /**
+     * 팔로우
+     */
+    @FormUrlEncoded
+    @POST
+    fun followUser (@Field("username") username:String):Single<Any>
+
+    @FormUrlEncoded
+    @POST
+    fun unFollowUser (@Field("username") username:String):Single<Any>
 
     /**
      * 포스팅 관련
@@ -62,6 +78,12 @@ interface httpRepository {
     @FormUrlEncoded
     @POST("/api/posts/{post_id}/comments/")
     fun writeComment(@Path("post_id") post_id : Int, @Field("message") comment: String) : Single<Any>
+
+    /**
+     * 다른 유저 포스팅 목록
+     */
+    @GET("/api/userpost/")
+    fun getUserPost(@Query("user") user : String) : Single<ArrayList<UserPostingData>>
 
     /**
      * 공공 api 도로명 주소

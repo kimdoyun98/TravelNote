@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework.permissions import AllowAny
 from rest_framework.generics import CreateAPIView, ListAPIView, get_object_or_404
 from rest_framework.response import Response
-from .serializers import SignupSerializer, SuggestionUserSerializer
+from .serializers import SignupSerializer, SuggestionUserSerializer, SearchUserSerializer
 
 # Create your views here.
 class SignupView(CreateAPIView):
@@ -27,11 +27,23 @@ class SuggestionListAPIView(ListAPIView):
             .exclude(pk__in=self.request.user.following_set.all())
         )
         return qs
+    
+class MyDataAPIView(ListAPIView):
+    queryset = get_user_model().objects.all()
+    serializer_class = SearchUserSerializer
+
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        qs = qs.filter(username = self.request.user.username)
+        
+        return qs
+
 
 #유저 검색
 class SearchUserListAPIView(ListAPIView):
     queryset = get_user_model().objects.all()
-    serializer_class = SuggestionUserSerializer
+    serializer_class = SearchUserSerializer
 
     def get_queryset(self):
         qs = super().get_queryset()

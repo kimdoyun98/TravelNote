@@ -7,10 +7,17 @@ import android.view.*
 import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.bumptech.glide.Glide
 import com.example.android.R
+import com.example.android.Secret
 import com.example.android.activity.sign.LoginActivity
+import com.example.android.adapter.userpage.UserPostingAdapter
 import com.example.android.common.MyApplication
 import com.example.android.databinding.FragmentMypageBinding
+import com.example.android.retrofit.NetworkManager
+import com.example.android.retrofit.httpRepository
+import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
+import io.reactivex.rxjava3.schedulers.Schedulers
 
 
 class MypageFragment : Fragment() {
@@ -20,10 +27,11 @@ class MypageFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentMypageBinding.bind(view)
 
+        binding.mypageToolbar.title = MyApplication.prefs.getString("username", "")
+        getMyData()
 
-
-
-
+        //포스팅 관련
+        getPostingList()
 
         //Toolbar Menu Set
         binding.mypageToolbar.inflateMenu(R.menu.mypage_menu)
@@ -56,15 +64,12 @@ class MypageFragment : Fragment() {
                 startActivity(intent)
                 activity?.finish()
             }
+            alertDialog.dismiss()
         }
 
         cancelButton.setOnClickListener {
             alertDialog.dismiss()
         }
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
     }
 
     override fun onCreateView(
@@ -75,5 +80,41 @@ class MypageFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_mypage, container, false)
     }
 
+    private fun getMyData(){
+        NetworkManager.getRetrofitInstance().create(httpRepository::class.java)
+            .getMyData()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({ it ->
+                binding.followingCount.text = it[0].following_set.size.toString()
 
+                Glide
+                    .with(this)
+                    .load("${Secret.BaseUrl}${it[0].avatar_url}")
+                    .centerCrop()
+                    .into(binding.profile)
+
+            }, {
+                Log.d("Fail", it.message.toString())
+            })
+    }
+
+    private fun getPostingList(){
+        NetworkManager.getRetrofitInstance().create(httpRepository::class.java)
+            .getUserPost(MyApplication.prefs.getString("username", ""))
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    binding.postingCount.text = it.size.toString()
+                    binding.myPosting.adapter = UserPostingAdapter().apply {
+                        setUserPosting(it)
+                    }
+                    Log.e("userPostIng", it.toString())
+                },
+                {
+                    Log.e("getPostingList", it.message.toString())
+                }
+            )
+    }
 }

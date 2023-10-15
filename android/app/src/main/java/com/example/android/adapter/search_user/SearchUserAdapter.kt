@@ -1,32 +1,43 @@
 package com.example.android.adapter.search_user
 
 import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.android.Secret
 import com.example.android.databinding.SearchUserItemBinding
-import com.example.android.retrofit.dto.SearchUser
+import com.example.android.retrofit.dto.UserData
 
-class SearchUserAdapter(private val lifecycleOwner: LifecycleOwner) : RecyclerView.Adapter<SearchUserAdapter.ViewHolder>() {
+class SearchUserAdapter() : RecyclerView.Adapter<SearchUserAdapter.ViewHolder>() {
     lateinit var binding : SearchUserItemBinding
-    private var userList = ArrayList<SearchUser>()
+    private lateinit var searchUserClickEvent : SearchUserClickEvent
+    private var userList = ArrayList<UserData>()
 
-    fun setUserList(_userList : ArrayList<SearchUser>){
+    fun setUserList(_userList : ArrayList<UserData>){
         userList = _userList
         notifyDataSetChanged()
     }
 
+    fun setSearchUserClickEvent(s : SearchUserClickEvent){
+        searchUserClickEvent = s
+    }
+
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+
+        init{
+            binding.root.setOnClickListener(View.OnClickListener {
+                val pos = adapterPosition
+                searchUserClickEvent.searchUserClick(userList[pos])
+            }
+
+            )
+        }
 
         fun bind(position: Int, context: Context){
             binding.username.text = userList[position].username
 
-            Log.e("avatar_url", userList[position].avatar_url)
             Glide
                 .with(context)
                 .load("${Secret.BaseUrl}${userList[position].avatar_url}")

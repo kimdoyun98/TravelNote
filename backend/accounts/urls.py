@@ -11,4 +11,5 @@ urlpatterns = [
     path("follow/", views.user_follow, name="user_follow"),
     path("unfollow/", views.user_unfollow, name="user_unfollow"),
     path("search/user/", views.SearchUserListAPIView.as_view(), name="user_search"),
+    path("mydata/", views.MyDataAPIView.as_view(), name="my_data"),
 ]

@@ -24,10 +24,7 @@
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
         <activity
-            android:name=".UserPage"
-            android:exported="false" />
-        <activity
-            android:name=".activity.search.SearchActivity"
+            android:name=".activity.user.UserPage"
             android:exported="false" />
         <activity
             android:name=".activity.post.AddressSearchActivity"
