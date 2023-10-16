@@ -27,6 +27,7 @@ class UserPageViewModel : ViewModel() {
     }
 
     fun follow(username: String){
+        Log.e("follow", username)
         retrofit.followUser(username)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())

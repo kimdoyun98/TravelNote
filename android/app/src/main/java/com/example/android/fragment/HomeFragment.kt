@@ -98,6 +98,7 @@ class HomeFragment : Fragment() {
             .subscribe({ it ->
                 Log.e("myData", it.toString())
                 MyApplication.prefs.setString("username", it[0].username)
+                MyApplication.prefs.setString("pk", it[0].pk.toString())
             }, {
                 Log.d("Fail", it.message.toString())
             })

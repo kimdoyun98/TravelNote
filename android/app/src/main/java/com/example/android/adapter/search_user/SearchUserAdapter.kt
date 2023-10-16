@@ -17,6 +17,7 @@ class SearchUserAdapter() : RecyclerView.Adapter<SearchUserAdapter.ViewHolder>()
 
     fun setUserList(_userList : ArrayList<UserData>){
         userList = _userList
+
         notifyDataSetChanged()
     }
 

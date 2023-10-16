@@ -1,6 +1,7 @@
 package com.example.android.activity.user
 
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.android.Secret
 import com.example.android.UserPageViewModel
 import com.example.android.adapter.userpage.UserPostingAdapter
+import com.example.android.common.MyApplication
 import com.example.android.databinding.ActivityUserPageBinding
 import com.example.android.retrofit.dto.UserData
 
@@ -26,9 +28,12 @@ class UserPage : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         userData = intent.getSerializableExtra("userdata") as UserData
+        Log.e("UserData", userData.toString())
+        Log.e("jwt", MyApplication.prefs.getString("token", ""))
 
         binding.userPageToolbar.title = userData.username
 
+        binding.lifecycleOwner = this
         binding.viewModel = viewModel
         binding.userData = userData
 
@@ -40,9 +45,9 @@ class UserPage : AppCompatActivity() {
         /**
          * 팔로우
          */
-        if(userData.follower_set.contains("kdoy")){
-
-        }
+        if(userData.follower_set.contains(MyApplication.prefs.getString("pk", "")))
+            viewModel.currentUserFollow(true)
+        else viewModel.currentUserFollow(false)
 
         /**
          * 게시물

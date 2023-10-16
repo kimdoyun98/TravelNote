@@ -32,10 +32,17 @@ class SearchFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                viewModel.getUserList(newText)
-                viewModel.userList.observe(viewLifecycleOwner){
-                    binding.searchedItem.adapter = searchUserAdapter.apply{
-                        setUserList(it)
+                if (newText.isNullOrEmpty()) {
+                    binding.searchedItem.adapter = searchUserAdapter.apply {
+                        setUserList(ArrayList())
+                    }
+                }
+                else {
+                    viewModel.getUserList(newText)
+                    viewModel.userList.observe(viewLifecycleOwner) {
+                        binding.searchedItem.adapter = searchUserAdapter.apply {
+                            setUserList(it)
+                        }
                     }
                 }
                 return false
@@ -48,6 +55,9 @@ class SearchFragment : Fragment() {
                     val intent = Intent(context, UserPage::class.java)
                     intent.putExtra("userdata", userdata)
                     startActivity(intent)
+
+                    binding.searchView.setQuery("", false)
+                    binding.searchView.clearFocus()
                 }
             }
 

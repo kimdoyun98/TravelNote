@@ -42,11 +42,11 @@ interface httpRepository {
      * 팔로우
      */
     @FormUrlEncoded
-    @POST
+    @POST("/accounts/follow/")
     fun followUser (@Field("username") username:String):Single<Any>
 
     @FormUrlEncoded
-    @POST
+    @POST("/accounts/unfollow/")
     fun unFollowUser (@Field("username") username:String):Single<Any>
 
     /**

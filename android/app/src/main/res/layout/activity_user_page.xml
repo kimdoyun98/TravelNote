@@ -96,7 +96,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:text="@{viewModel.currentFollow ? @string/follow : @string/unfollow}"
+                android:text="@{viewModel.currentFollow ? @string/unfollow : @string/follow}"
+                android:onClick="@{()->viewModel.currentFollow ? viewModel.unfollow(userData.username) : viewModel.follow(userData.username)}"
                 />
 
             <TextView
