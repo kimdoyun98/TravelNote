@@ -1,17 +1,14 @@
 package com.example.android.adapter.home
 
-import android.graphics.Color
-import android.graphics.drawable.Drawable
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.SlidingDrawer
 import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.android.GetPostingViewModel
-import com.example.android.R
+import com.example.android.common.GeoCoder
 import com.example.android.databinding.HomeItemBinding
 import com.example.android.retrofit.dto.PostingData
 
@@ -21,7 +18,7 @@ class HomeAdapter(
     : RecyclerView.Adapter<HomeAdapter.ViewHolder>() {
     private lateinit var binding: HomeItemBinding
     private var postingArray = ArrayList<PostingData>()
-    private lateinit var commentClickEvent : HomeClickEvent
+    private lateinit var itemClickEvent : HomeClickEvent
 
     fun setPosting(posting:ArrayList<PostingData>){
         Log.e("HomeAdapter", "setPosting")
@@ -31,8 +28,8 @@ class HomeAdapter(
         Log.e("notifyDataSetChanged", postingArray.toString())
     }
 
-    fun commentClick(homeClickEvent: HomeClickEvent){
-        commentClickEvent = homeClickEvent
+    fun itemClick(homeClickEvent: HomeClickEvent){
+        itemClickEvent = homeClickEvent
     }
 
     inner class ViewHolder(view: View,
@@ -43,12 +40,6 @@ class HomeAdapter(
 //            viewModel = getPostingViewModel
 //            lifecycleOwner = this@ViewHolder.lifecycleOwner //이거 안해주면 databinding에서 안바뀜;
 //        }
-        init {
-            val position : Int = layoutPosition
-            Log.e("position", position.toString())
-
-        }
-
         fun bind(position: Int){
             /**
              * Data Set
@@ -96,7 +87,7 @@ class HomeAdapter(
 
             //댓글 버튼
             binding.commentButton.setOnClickListener {
-                commentClickEvent.CommentClickEvent(postingArray[position].id)
+                itemClickEvent.CommentClickEvent(postingArray[position].id)
             }
 
             binding.executePendingBindings()
@@ -104,6 +95,12 @@ class HomeAdapter(
             //포스팅 글
             if(!postingArray[position].caption.isNullOrEmpty()) binding.caption.visibility = View.VISIBLE
             else binding.caption.visibility = View.GONE
+
+            //내비게이션
+            binding.naviButton.setOnClickListener {
+                itemClickEvent.navigationClickEvent(postingArray[position].location)
+            }
+
         }
 
     }

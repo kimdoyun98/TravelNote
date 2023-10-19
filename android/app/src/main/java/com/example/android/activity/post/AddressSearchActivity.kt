@@ -34,30 +34,45 @@ class AddressSearchActivity : AppCompatActivity() {
             override fun onItemClicked(address: String?, address2: String?) {
                 intent.apply {
                     putExtra("address", address)
-                    //putExtra("address2", address2)
                     setResult(RESULT_OK, intent)
                 }
                 finish()
             }
         })
 
-        binding.addressRecyclerView.adapter = adapter
-
         val retrofit = NetworkManager.getAddressSearchInstance().create(httpRepository::class.java)
 
         binding.addressSearchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
             override fun onQueryTextSubmit(query: String?): Boolean {
                 Log.e("setOnQueryTextListener", query.toString())
+                retrofit.getAddress(query)
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(
+                        {
+                            binding.addressRecyclerView.adapter = adapter.apply {
+                                setAddress(it.result.juso)
+                            }
+                        },
+                        {
+                            Log.e("onQueryTextChange", "${it.message}")
+                        }
+                    )
+
+
                 return false
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
+                Log.e("newtext", newText.toString())
                 retrofit.getAddress(newText)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribe(
                         {
-                            adapter.setAddress(it.result.juso)
+                            binding.addressRecyclerView.adapter = adapter.apply {
+                                setAddress(it.result.juso)
+                            }
                         },
                         {
                             Log.e("onQueryTextChange", "${it.message}")

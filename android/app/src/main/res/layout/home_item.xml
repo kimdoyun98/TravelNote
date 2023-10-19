@@ -78,7 +78,7 @@
             android:layout_height="500dp" />
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
@@ -88,7 +88,6 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
                 android:background="@{postingData.is_like ? @drawable/fill_heart : @drawable/heart}"
                 android:backgroundTint="@{postingData.is_like ? @color/red : @color/white}"
                 />
@@ -98,9 +97,26 @@
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_margin="10dp"
-                android:layout_weight="1"
                 android:background="@drawable/comment"
                 android:backgroundTint="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="right"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/naviButton"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/navi"
+                    android:backgroundTint="@color/white"
+                    />
+
+            </LinearLayout>
+
         </LinearLayout>
         <LinearLayout
             android:id="@+id/caption"
