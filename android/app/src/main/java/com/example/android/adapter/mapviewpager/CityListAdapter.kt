@@ -1,26 +1,30 @@
 package com.example.android.adapter.mapviewpager
 
 import android.graphics.Color
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.LifecycleOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.example.android.GetPostingViewModel
 import com.example.android.common.StateUtils
 import com.example.android.databinding.StateListItemBinding
 
-class CityListAdapter(private val recyclerView: RecyclerView,private val getPostingViewModel: GetPostingViewModel, private val lifecycleOwner: LifecycleOwner) :RecyclerView.Adapter<CityListAdapter.ViewHolder>() {
+class CityListAdapter(private val getPostingViewModel: GetPostingViewModel) :RecyclerView.Adapter<CityListAdapter.ViewHolder>() {
     lateinit var binding : StateListItemBinding
     private var cityList = ArrayList<String>()
     private var locationData = ArrayList<String>()
+    lateinit var cityButtonClick: CityButtonClick
+    private var select  = false
 
     inner class ViewHolder(view: View):RecyclerView.ViewHolder(view){
         fun bind(position: Int){
             binding.cityName = cityList[position]
 
-            if(!locationData.isNullOrEmpty()){
+            binding.cityButton.setOnClickListener {
+                cityButtonClick.cityButtonClick(cityList[position])
+            }
+
+            if(!select){
                 //현재 시도(ex 서울특별시)의 방문한 시군구 개수
                 var count = 0
                 for (location in locationData.distinct()){
@@ -31,12 +35,20 @@ class CityListAdapter(private val recyclerView: RecyclerView,private val getPost
                 //Button 색
                 binding.cityButton.setBackgroundColor(Color.parseColor(StateUtils.stateColor[cityList[position]]))
             }
+            else{
+                if(locationData.contains(cityList[position])) binding.cityButton.setBackgroundColor(Color.GREEN)
+                else binding.cityButton.setBackgroundColor(Color.GRAY)
+            }
 
         }
     }
+    fun setCityClickEvent(cityButtonClick: CityButtonClick){
+        this.cityButtonClick = cityButtonClick
+    }
 
-    fun setCityList(list: ArrayList<String>, data: ArrayList<String>?){
+    fun setCityList(list: ArrayList<String>, data: ArrayList<String>?, _select: Boolean){
         cityList = list
+        select = _select
         if (data != null) {
             locationData = data
         }
@@ -54,15 +66,6 @@ class CityListAdapter(private val recyclerView: RecyclerView,private val getPost
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemView.setOnClickListener {
-            Log.e("Click", cityList[position])
-            getPostingViewModel.selectState(cityList[position])
-        }
-        binding.cityButton.setOnClickListener {
-            Log.e("ButtonClick", cityList[position])
-            getPostingViewModel.selectState(cityList[position])
-        }
-
         holder.bind(position)
     }
 

@@ -11,6 +11,7 @@ import androidx.fragment.app.viewModels
 import com.devs.vectorchildfinder.VectorChildFinder
 import com.example.android.GetPostingViewModel
 import com.example.android.R
+import com.example.android.adapter.mapviewpager.CityButtonClick
 import com.example.android.adapter.mapviewpager.CityListAdapter
 import com.example.android.common.StateUtils
 import com.example.android.databinding.FragmentVisitedLocationBinding
@@ -66,21 +67,30 @@ class VisitedLocation : Fragment() {
                     }
                     else{
                         vector.findPathByName("$stateName $cityName").fillColor = Color.parseColor(StateUtils.stateColor[stateName])
+                        if(!StateUtils.hashList[selectState].isNullOrEmpty() && StateUtils.hashList[selectState]!!.contains(cityName))
+                            locationData.add(cityName)
                     }
 
                 }
                 binding.koreaStateMap2.invalidate()
 
-                adapter = CityListAdapter(binding.mapRecyclerView, viewModel, this)
+                adapter = CityListAdapter(viewModel)
 
+                Log.e("locationData", locationData.toString())
                 binding.mapRecyclerView.adapter = adapter.apply {
-                    if(selectState == "No Select") setCityList(StateUtils.stateList, locationData)
-                    else adapter.setCityList(StateUtils.hashList[selectState]!!, null)
+                    if(selectState == "No Select") setCityList(StateUtils.stateList, locationData, false)
+                    else adapter.setCityList(StateUtils.hashList[selectState]!!, locationData, true)
                 }
 
-            }
+                adapter.setCityClickEvent(object : CityButtonClick{
+                    override fun cityButtonClick(city : String) {
+                        if(selectState == "No Select") viewModel.selectState(city)
+                    }
 
+                })
+            }
         }
+
 
         binding.toolbarBackButton.setOnClickListener {
             viewModel.selectState("No Select")

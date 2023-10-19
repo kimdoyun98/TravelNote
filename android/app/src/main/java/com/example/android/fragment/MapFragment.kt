@@ -1,24 +1,18 @@
 package com.example.android.fragment
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
-import androidx.fragment.app.viewModels
-import com.devs.vectorchildfinder.VectorChildFinder
-import com.example.android.GetPostingViewModel
-import com.example.android.R
+import androidx.fragment.app.Fragment
 import com.example.android.adapter.mapviewpager.PagerAdapter
-import com.example.android.databinding.FragmentHomeBinding
 import com.example.android.databinding.FragmentMapBinding
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
 class MapFragment : Fragment() {
     lateinit var binding : FragmentMapBinding
-    private val viewModel: GetPostingViewModel by viewModels()
     private val tabTextList = listOf("상세", "지도", "지도상세")
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
