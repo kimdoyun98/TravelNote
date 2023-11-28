@@ -17,6 +17,7 @@ import com.example.android.retrofit.httpRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
 import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody
 import java.io.File
@@ -85,10 +86,16 @@ class PostActivity : AppCompatActivity() {
                 else {
                     //TODO 등록
                     val photofile = File(path)
-                    val photo = RequestBody.create(MediaType.parse("image/jpeg"), photofile)
+                    val photo = RequestBody.create("image/jpeg".toMediaTypeOrNull(), photofile)
                     val filePart : MultipartBody.Part = MultipartBody.Part.createFormData("photo","photo.jpg", photo)
-                    val caption = RequestBody.create(MediaType.parse("text/plain"), binding.caption.text.toString())
-                    val location = RequestBody.create(MediaType.parse("text/plain"), binding.locationAdd.text.toString())
+                    val caption = RequestBody.create(
+                        "text/plain".toMediaTypeOrNull(),
+                        binding.caption.text.toString()
+                    )
+                    val location = RequestBody.create(
+                        "text/plain".toMediaTypeOrNull(),
+                        binding.locationAdd.text.toString()
+                    )
 
                     val retrofit = NetworkManager.getRetrofitInstance().create(httpRepository::class.java)
                     retrofit.writePost(//photo, caption, location , tag_set, like_user_set

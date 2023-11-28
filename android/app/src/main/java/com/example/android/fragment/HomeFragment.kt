@@ -43,7 +43,7 @@ class HomeFragment : Fragment() {
 
         val adapter = HomeAdapter(viewModel, this)
 
-        viewModel.getPostingInServer()
+        //viewModel.getPostingInServer()
 
         //포스팅 목록
         viewModel.posting.observe(viewLifecycleOwner) {
@@ -113,8 +113,6 @@ class HomeFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         getMyData()
-        val keyHash = Utility.getKeyHash(mainActivity)
-        Log.e("keyHash", keyHash)
     }
 
     //뒤로가기

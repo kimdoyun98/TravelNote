@@ -41,7 +41,6 @@ class MypageFragment : Fragment() {
         }
 
         binding.signOut.setOnClickListener {
-            Log.e("로그아웃", "CLick")
             customDialog(view)
         }
     }

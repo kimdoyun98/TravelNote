@@ -61,7 +61,7 @@
                     android:textSize="13dp"/>
             </LinearLayout>
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/button3"
                 android:layout_width="20dp"
                 android:layout_height="30dp"
@@ -92,7 +92,7 @@
                 android:backgroundTint="@{postingData.is_like ? @color/red : @color/white}"
                 />
 
-            <Button
+            <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/commentButton"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
@@ -106,7 +106,7 @@
                 android:gravity="right"
                 android:orientation="horizontal">
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
                     android:id="@+id/naviButton"
                     android:layout_width="30dp"
                     android:layout_height="30dp"

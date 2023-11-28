@@ -1,17 +1,17 @@
 package com.example.android
 
 import android.util.Log
-import android.view.View
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.bumptech.glide.Glide
-import com.example.android.common.StateUtils
+import com.example.android.common.MyApplication
 import com.example.android.retrofit.NetworkManager
 import com.example.android.retrofit.dto.Comment
 import com.example.android.retrofit.dto.PostingData
+import com.example.android.retrofit.dto.UserPostingData
 import com.example.android.retrofit.httpRepository
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.schedulers.Schedulers
@@ -20,15 +20,19 @@ import io.reactivex.rxjava3.schedulers.Schedulers
 class GetPostingViewModel : ViewModel() {
     private val retrofit = NetworkManager.getRetrofitInstance().create(httpRepository::class.java)
 
-
     private var _posting = MutableLiveData<ArrayList<PostingData>>()
     var posting : LiveData<ArrayList<PostingData>> = _posting
 
-    private var _selectState = MutableLiveData<String>().apply { value = "No Select" }
-    val selectState : LiveData<String> = _selectState
+    private var _myPosting = MutableLiveData<ArrayList<UserPostingData>>()
+    var myPosting : LiveData<ArrayList<UserPostingData>> = _myPosting
 
     private var _comment = MutableLiveData<ArrayList<Comment>>()
     val comment : LiveData<ArrayList<Comment>> = _comment
+
+    init {
+        getPostingInServer()
+        getMyData()
+    }
 
     /**
      * Home Fragment
@@ -114,12 +118,18 @@ class GetPostingViewModel : ViewModel() {
     /**
      * Map Fragment
      */
-    fun cityCount(city:String) : String{
-        return StateUtils.hashList[city]?.size.toString()
-    }
-
-    fun selectState(city : String){
-        _selectState.postValue(city)
+    fun getMyData(){
+        retrofit.getUserPost(MyApplication.prefs.getString("username", ""))
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    _myPosting.postValue(it)
+                },
+                {
+                    Log.e("GetPostingViewModel", it.message.toString())
+                }
+            )
     }
 
 

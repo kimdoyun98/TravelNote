@@ -18,21 +18,10 @@
         app:titleMarginTop="15dp"
         app:titleTextColor="@color/white" />
 
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/naverMap"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/black"
-        app:tabMode="fixed"
-        app:tabBackground="@drawable/tab_style"
-        app:tabIconTint="@drawable/tab_select"
-        app:tabTextColor="@drawable/tab_select"
-        app:tabIndicatorHeight="0dp">
-
-    </com.google.android.material.tabs.TabLayout>
-    <androidx.viewpager2.widget.ViewPager2
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/mapViewPager"
-        />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:name="com.naver.maps.map.MapFragment" />
 </LinearLayout>

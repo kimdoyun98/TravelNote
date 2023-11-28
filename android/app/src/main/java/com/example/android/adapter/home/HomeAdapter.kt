@@ -21,11 +21,9 @@ class HomeAdapter(
     private lateinit var itemClickEvent : HomeClickEvent
 
     fun setPosting(posting:ArrayList<PostingData>){
-        Log.e("HomeAdapter", "setPosting")
         postingArray.clear()
         postingArray = posting
         notifyItemRangeChanged(0, postingArray.size)
-        Log.e("notifyDataSetChanged", postingArray.toString())
     }
 
     fun itemClick(homeClickEvent: HomeClickEvent){
