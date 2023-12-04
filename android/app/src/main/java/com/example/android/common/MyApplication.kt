@@ -27,6 +27,4 @@ class MyApplication : Application() {
         NaverMapSdk.getInstance(this).client =
             NaverMapSdk.NaverCloudPlatformClient(BuildConfig.Client_ID)
     }
-
-
 }

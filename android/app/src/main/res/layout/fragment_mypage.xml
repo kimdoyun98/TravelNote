@@ -94,12 +94,12 @@
                 android:layout_weight="1"
                 android:text="프로필 변경"
                 />
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                />
+<!--            <Button-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_margin="10dp"-->
+<!--                android:layout_weight="1"-->
+<!--                />-->
 
         </LinearLayout>
 

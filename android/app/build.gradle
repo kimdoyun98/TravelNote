@@ -72,12 +72,6 @@ dependencies {
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
 
-    //VectorChildFinder
-    implementation 'com.github.devsideal:VectorChildFinder:1.0.0'
-
-    //PhotoView(Zoom)
-    implementation 'com.github.chrisbanes:PhotoView:2.0.0'
-
     //StickyScrollView
     implementation 'com.github.amarjain07:StickyScrollView:1.0.3'
 

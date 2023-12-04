@@ -39,18 +39,14 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
-        Log.e("my username", MyApplication.prefs.getString("username", ""))
 
         val adapter = HomeAdapter(viewModel, this)
-
-        //viewModel.getPostingInServer()
 
         //포스팅 목록
         viewModel.posting.observe(viewLifecycleOwner) {
             binding.homeRecyclerview.adapter = adapter.apply {
                 setPosting(it)
             }
-            Log.e("posting.observe", it.toString())
         }
 
         //댓글
@@ -63,7 +59,6 @@ class HomeFragment : Fragment() {
                 viewModel.getComment(posting_id)
 
                 binding.postCommentButton.setOnClickListener {
-                    Log.e("comment", binding.comment.text.toString())
                     viewModel.writeComment(posting_id, binding.comment.text.toString())
                     binding.comment.text = null
                 }
